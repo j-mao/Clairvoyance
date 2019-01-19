@@ -691,11 +691,16 @@ class Veww {
     
         // turn queue
         var html = '';
+        var unit_count = [[0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0]];
 
         for (var i = 0; i < this.current_game.robots.length; ++i) {
             var robot = this.current_game.robots[i];
             var color = robot.team == 0 ? 'red' : 'blue';
+            ++unit_count[robot.team][robot.unit];
             html += `<p class='selectable ${color}' onmouseover=veww.select_unit(${i})>${i+1}: ${UNIT_NAMES[robot.unit]} [${robot.id}]</p>`
+        }
+        for (var i = 0; i < 2; ++i) for (var j = 0; j < 6; ++j) {
+            document.getElementById('game_unitcount_'+i+'_'+j).innerText = unit_count[i][j];
         }
         document.getElementById('turn_queue').innerHTML = html;
     }
