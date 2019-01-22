@@ -688,6 +688,11 @@ class Veww {
         document.getElementById('game_blue_fuel').innerText = this.current_game.fuel[1];
         document.getElementById('game_red_karbonite').innerText = this.current_game.karbonite[0];
         document.getElementById('game_blue_karbonite').innerText = this.current_game.karbonite[1];
+
+        document.getElementById('game_red_trade_fuel').innerText = this.current_game.last_offer[0][0];
+        document.getElementById('game_blue_trade_fuel').innerText = this.current_game.last_offer[1][0];
+        document.getElementById('game_red_trade_karbonite').innerText = this.current_game.last_offer[0][1];
+        document.getElementById('game_blue_trade_karbonite').innerText = this.current_game.last_offer[1][1];
     
         // turn queue
         var html = '';
